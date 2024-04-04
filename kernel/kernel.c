@@ -5,6 +5,7 @@
 #include <readline/history.h>
 
 #include "system.h"
+#include "forkProgram.h"
 void print_minios(char* str);
 
 int main() {
@@ -22,6 +23,12 @@ int main() {
 
         if (strcmp(input,"minisystem") == 0){
             minisystem();
+        }
+        else if (strcmp(input,"userInfo") == 0){
+            userInfo();
+        }
+        else if (strcmp(input,"forkProgram") == 0){
+            forkProgram();
         }
         else system(input);
     }
