@@ -6,6 +6,7 @@
 
 #include "system.h"
 #include "forkProgram.h"
+#include "ipcProgram.h"
 void print_minios(char* str);
 
 int main() {
@@ -29,6 +30,9 @@ int main() {
         }
         else if (strcmp(input,"forkProgram") == 0){
             forkProgram();
+        }
+        else if (strcmp(input,"ipcProgram") == 0) {
+            ipcProgram();
         }
         else system(input);
     }
