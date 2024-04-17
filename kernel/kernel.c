@@ -7,6 +7,8 @@
 #include "system.h"
 #include "forkProgram.h"
 #include "ipcProgram.h"
+#include "calculate_pi.h"
+
 void print_minios(char* str);
 
 int main() {
@@ -34,6 +36,9 @@ int main() {
         else if (strcmp(input,"ipcProgram") == 0) {
             ipcProgram();
         }
+	    else if (strcmp(input,"montecarlo") == 0) {
+	        montecarlo();
+	    }
         else system(input);
     }
 
