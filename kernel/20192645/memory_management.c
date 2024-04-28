@@ -33,7 +33,7 @@ void free_memory(void *memory) {
             free(partitions[i]);
             partitions[i] = NULL;
             return;
-        } 
+        }
     }
     fprintf(stderr, "Attempted to free a non-allocated partition\n");
     return;
@@ -48,7 +48,7 @@ void print_partitions() {
 
 int fixedsize_memory_management() {
     init_partitions();
-    
+
     printf("----- Print partitions after init ----- \n");
     print_partitions();
 
