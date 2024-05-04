@@ -43,7 +43,7 @@ int main() {
 	        montecarlo();
 	    }
         else if (strcmp(input,"fixed allocate") == 0) {
-            void *mem = fixed_allocate_memory(); 
+            void *mem = fixed_allocate_memory();
             if (mem != 0) {
                 printf("Memory allocated at %p\n", mem);
             }
@@ -62,10 +62,10 @@ int main() {
             size_t size;
             scanf("%zu", &size);
 
-            int mem_id = dyna_alloc_ret_id(size); 
+            int mem_id = dyna_alloc_ret_id(size);
             if (mem_id != 0) {
                 printf("Memory allocated and ID is %d\n", mem_id);
-            } 
+            }
             else if(mem_id == -1) {
                 printf("Memory allocation is failed!!");
             }

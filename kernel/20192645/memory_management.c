@@ -14,7 +14,7 @@ void init_partitions() {
 
 int fixedsize_memory_management() {
     init_partitions();
-    
+
     printf("----- Print partitions after init ----- \n");
     print_memory_blocks();
 
@@ -61,7 +61,7 @@ void fixed_free_memory(void *memory) {
             free(memory_blocks[i].addr);
             memory_blocks[i].addr = NULL;
             return;
-        } 
+        }
     }
     fprintf(stderr, "Attempted to free a non-allocated partition\n");
     return;

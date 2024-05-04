@@ -9,7 +9,7 @@
 #define MAX_MEM_BLOCKS 10
 
 typedef struct {
-    void *addr; 
+    void *addr;
     size_t size;
     int id; //id
     int in_use_flag; //사용중
