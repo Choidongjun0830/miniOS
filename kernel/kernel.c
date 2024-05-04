@@ -7,12 +7,17 @@
 #include "system.h"
 #include "forkProgram.h"
 #include "ipcProgram.h"
+#include "calculate_pi.h"
+#include "memory_management.h"
+#include "round_robin.h"
+
 void print_minios(char* str);
 
 int main() {
     print_minios("[MiniOS SSU] Hello, World!");
 
     char *input;
+    init_partitions();
 
     while(1) {
         // readline을 사용하여 입력 받기
@@ -34,6 +39,46 @@ int main() {
         else if (strcmp(input,"ipcProgram") == 0) {
             ipcProgram();
         }
+	    else if (strcmp(input,"montecarlo") == 0) {
+	        montecarlo();
+	    }
+        else if (strcmp(input,"fixed allocate") == 0) {
+            void *mem = fixed_allocate_memory(); 
+            if (mem != 0) {
+                printf("Memory allocated at %p\n", mem);
+            }
+        }
+        else if (strcmp(input,"fixed free") == 0) {
+            printf("Enter memory address to free: ");
+            void *addr;
+            scanf("%p", &addr);
+            fixed_free_memory(addr);
+        }
+        else if (strcmp(input, "print memory block") == 0) {
+            print_memory_blocks();
+        }
+        else if (strcmp(input, "dyna alloc") == 0) {
+            printf("Enter memory size to allocate: ");
+            size_t size;
+            scanf("%zu", &size);
+
+            int mem_id = dyna_alloc_ret_id(size); 
+            if (mem_id != 0) {
+                printf("Memory allocated and ID is %d\n", mem_id);
+            } 
+            else if(mem_id == -1) {
+                printf("Memory allocation is failed!!");
+            }
+        }
+        else if (strcmp(input, "dyna free") == 0) {
+            printf("Enter memory ID to free: ");
+            int mem_id;
+            scanf("%d", &mem_id);
+            dyna_free(mem_id);
+        }
+	    else if(strcmp(input,"scheduling") == 0) {
+	        execute_scheduling();
+	    }
         else system(input);
     }
 
