@@ -15,7 +15,7 @@ void rr(process proc[], int n) {
                 int time_used = (proc[i].remaining_time > TIME_QUANTUM) ? TIME_QUANTUM : proc[i].remaining_time;
                 time += time_used;
                 proc[i].remaining_time -= time_used;
-                
+
                 if (proc[i].remaining_time == 0) {
                     proc[i].completion_time = time;
                     left_processes--;
