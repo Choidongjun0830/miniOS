@@ -9,11 +9,7 @@
 #define MAX_MEM_BLOCKS 20
 
 typedef struct {
-<<<<<<< Updated upstream
-    void *addr;
-=======
     void *addr; 
->>>>>>> Stashed changes
     size_t size;
     int id; //id
     int in_use_flag; //사용중
@@ -32,8 +28,4 @@ int dyna_alloc(size_t size);
 void dyna_free(int free_id);
 void update_free_spaces();
 
-<<<<<<< Updated upstream
 #endif
-=======
-#endif
->>>>>>> Stashed changes
