@@ -18,7 +18,11 @@ void init_partitions() {
 
 int fixedsize_memory_management() {
     init_partitions();
+<<<<<<< Updated upstream
 
+=======
+    
+>>>>>>> Stashed changes
     printf("----- Print partitions after init ----- \n");
     print_memory_blocks();
 
@@ -65,7 +69,11 @@ void fixed_free_memory(void *memory) {
             free(memory_blocks[i].addr);
             memory_blocks[i].addr = NULL;
             return;
+<<<<<<< Updated upstream
         }
+=======
+        } 
+>>>>>>> Stashed changes
     }
     fprintf(stderr, "Attempted to free a non-allocated partition\n");
     return;
@@ -98,7 +106,11 @@ int dyna_alloc(size_t size) {
     if(best_idx == -1) {
         return -1;
     }
+<<<<<<< Updated upstream
 
+=======
+    
+>>>>>>> Stashed changes
     int assigned_id = next_id++;
     for(int k = 0; k < n_blocks; k++) {
         size_t alloc_size;
@@ -108,7 +120,11 @@ int dyna_alloc(size_t size) {
             alloc_size = last_block_size;
         }
         memory_blocks[best_idx + k].addr = malloc(alloc_size);
+<<<<<<< Updated upstream
         if(!memory_blocks[best_idx + k].addr) {
+=======
+        if(!memory_blocks[best_idx + k].addr) { 
+>>>>>>> Stashed changes
             //할당 실패시 이전 반복에서 할당한 메모리 해제
             for(int l = 0; l < k; l++){
                 free(memory_blocks[best_idx + l].addr);

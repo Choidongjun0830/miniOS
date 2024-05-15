@@ -30,15 +30,55 @@ int main() {
         if (strcmp(input,"minisystem") == 0){
             minisystem();
         }
-        else if (strcmp(input,"userInfo") == 0){
-            userInfo();
+        // else if (strcmp(input,"userInfo") == 0){
+        //     userInfo();
+        // }
+        // else if (strcmp(input,"forkProgram") == 0){
+        //     forkProgram();
+        // }
+        // else if (strcmp(input,"ipcProgram") == 0) {
+        //     ipcProgram();
+        // }
+	    else if (strcmp(input,"montecarlo") == 0) {
+	        montecarlo();
+	    }
+        // else if (strcmp(input,"fixed allocate") == 0) {
+        //     void *mem = fixed_allocate_memory(); 
+        //     if (mem != 0) {
+        //         printf("Memory allocated at %p\n", mem);
+        //     }
+        // }
+        // else if (strcmp(input,"fixed free") == 0) {
+        //     printf("Enter memory address to free: ");
+        //     void *addr;
+        //     scanf("%p", &addr);
+        //     fixed_free_memory(addr);
+        // }
+        // else if(strcmp(input,"scheduling") == 0) {
+	    //     execute_scheduling();
+	    // }
+        else if (strcmp(input, "print memory") == 0) {
+            print_memory_blocks();
         }
-        else if (strcmp(input,"forkProgram") == 0){
-            forkProgram();
+        else if (strcmp(input, "dyna alloc") == 0) {
+            printf("Enter memory size to allocate: ");
+            size_t size;
+            scanf("%zu", &size);
+
+            int mem_id = dyna_alloc(size); 
+            if (mem_id != -1) {
+                printf("Memory allocated and ID is %d\n", mem_id);
+            } else {
+                printf("Memory allocation is failed!!\n");
+            }
         }
-        else if (strcmp(input,"ipcProgram") == 0) {
-            ipcProgram();
+        else if (strcmp(input, "dyna free") == 0) {
+            printf("Enter memory ID to free: ");
+            int mem_id;
+            scanf("%d", &mem_id);
+            dyna_free(mem_id);
         }
+<<<<<<< Updated upstream
 	    else if (strcmp(input,"montecarlo") == 0) {
 	        montecarlo();
 	    }
@@ -78,6 +118,9 @@ int main() {
 	    else if(strcmp(input,"scheduling") == 0) {
 	        execute_scheduling();
 	    }
+=======
+	    
+>>>>>>> Stashed changes
         else system(input);
     }
 
