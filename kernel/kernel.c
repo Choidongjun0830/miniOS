@@ -10,6 +10,7 @@
 #include "calculate_pi.h"
 #include "memory_management.h"
 #include "round_robin.h"
+#include "scheduling.h"
 
 void print_minios(char* str);
 
@@ -64,8 +65,8 @@ int main() {
             printf("Enter memory size to allocate: ");
             size_t size;
             scanf("%zu", &size);
-
-            int mem_id = dyna_alloc(size); 
+            Process empty_process = createDefaultProcess();
+            int mem_id = dyna_alloc(size, empty_process); 
             if (mem_id != -1) {
                 printf("Memory allocated and ID is %d\n", mem_id);
             } else {
@@ -77,6 +78,9 @@ int main() {
             int mem_id;
             scanf("%d", &mem_id);
             dyna_free(mem_id);
+        }
+        else if (strcmp(input, "scheduling") == 0) {
+            schedule();
         }
 	    
         else system(input);

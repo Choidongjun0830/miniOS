@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
+#include "scheduling.h"
 
 #define PARTITION_SIZE 1024
 #define MAX_MEM_BLOCKS 20
@@ -11,8 +13,9 @@
 typedef struct {
     void *addr; 
     size_t size;
-    int id; //id
+    int block_id; //id
     int in_use_flag; //사용중
+    Process process;
 } MemoryBlock;
 
 typedef struct {
@@ -24,7 +27,7 @@ void init_partitions();
 void* fixed_allocate_memory();
 void fixed_free_memory(void *memory);
 void print_memory_blocks();
-int dyna_alloc(size_t size);
+int dyna_alloc(size_t size, Process process);
 void dyna_free(int free_id);
 void update_free_spaces();
 
